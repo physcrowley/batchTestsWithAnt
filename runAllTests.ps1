@@ -8,7 +8,9 @@ Get-ChildItem -Directory | ForEach-Object {
     # run tests
     java -cp bin TeacherTest
     # clean up
+    Read-Host -Prompt "Press Enter to continue"
     git clean -f -d
+    Write-Output ""
     # reset for next item
     Set-Location ..
 }
