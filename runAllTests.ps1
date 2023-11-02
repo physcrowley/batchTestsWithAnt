@@ -8,8 +8,7 @@ Get-ChildItem -Directory | ForEach-Object {
     # run tests
     java -cp bin TeacherTest
     # clean up
-    Remove-Item -Path bin -Recurse -Force
-    Remove-Item -Path TeacherTest.java, build.xml -Force
+    git clean -f -d
     # reset for next item
     Set-Location ..
 }
