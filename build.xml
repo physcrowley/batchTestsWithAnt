@@ -1,0 +1,13 @@
+<project name="StandardCompile" default="compile">
+  <target name="compile">
+    <mkdir dir="bin"/>
+    <javac srcdir="." destdir="bin"/>
+  </target>
+  <target name="run">
+    <java classname="TeacherTest" fork="true" failonerror="true">
+      <classpath>
+        <pathelement location="bin"/>
+      </classpath>
+    </java>
+  </target>
+</project>
