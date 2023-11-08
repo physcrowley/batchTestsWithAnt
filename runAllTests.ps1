@@ -18,13 +18,8 @@ Get-ChildItem -Directory | ForEach-Object {
         Write-Output ">>> $_ FAILED during execution"
     }
     # clean up
-    Try { 
-        Read-Host -Prompt "Press Enter to continue"
-        git clean -f -d
-    }
-    Catch {
-        Write-Output ">>> $_ FAILED during cleanup"
-    }
+    Read-Host -Prompt "Press Enter to continue"
+    git clean -f -d
     # reset for next item
     Set-Location ..
     Write-Output ""
