@@ -2,21 +2,11 @@ Get-ChildItem -Directory | ForEach-Object {
     Write-Output "Running tests for $_"
     Set-Location $_
     # setup
-    Try { 
-        Copy-Item -Path ..\TeacherTest.java, ..\build.xml -Destination .
-        ant compile -silent
-        Write-Output ""
-    }
-    Catch {
-        Write-Output ">>> $_ FAILED during setup"
-    }
+    Copy-Item -Path ..\TeacherTest.java, ..\build.xml -Destination .
+    ant compile -silent
+    Write-Output ""
     # run tests
-    Try { 
-        java -cp bin TeacherTest
-    }
-    Catch {
-        Write-Output ">>> $_ FAILED during execution"
-    }
+    java -cp bin TeacherTest
     # clean up
     Read-Host -Prompt "Press Enter to continue"
     git clean -f -d
